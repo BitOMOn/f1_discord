@@ -1,1 +1,1 @@
-# f1_discord
+This is written in python and scrapes the formula 1 official website "https://www.formula1.com/" and then passes them and then adds it to a single string before putting it into discord with a webhook.
