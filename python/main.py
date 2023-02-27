@@ -10,7 +10,6 @@ discordwebhock = "" # put your discord webhhock here
 soup = BeautifulSoup(formula1com_drivers.text, 'lxml')
 pass1 = soup.find('tbody')
 pass2s = pass1.find_all('tr')
-#print(pass2s)
 
 discord_pkt = ""
 
@@ -47,13 +46,11 @@ ra_pass2 = ra_pass1.find('tr')
 ra_pass3 = ra_pass2.find('a', class_ = 'dark bold ArchiveLink')
 ra_pass4 = ra_pass3.get('href')
 ra_query_url = base_url + ra_pass4
-print(ra_query_url)
 
 formula1com_race = requests.get(ra_query_url)
 ra1_soup = BeautifulSoup(formula1com_race.text, 'lxml')
 ra1_pass1 = ra1_soup.find('tbody')
 ra1_pass2s = ra1_pass1.find_all('tr')
-#print(ra1_pass2)
 
 discord_pkt += "--------------------"
 discord_pkt += "\n"
@@ -73,7 +70,6 @@ for ra1_pass2 in ra1_pass2s:
 
     discord_pkt += text_string
     discord_pkt += "\n"
-
 
 print(discord_pkt)
 webhook = DiscordWebhook(url=discordwebhock, content=discord_pkt)
